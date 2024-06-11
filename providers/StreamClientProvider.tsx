@@ -8,6 +8,9 @@ import { tokenProvider } from '@/actions/stream.actions';
 import Loader from '@/components/Loader';
 
 const API_KEY = process.env.NEXT_PUBLIC_STREAM_API_KEY;
+// const API_ID = process.env.STREAM_APP_ID;
+
+
 
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
   const [videoClient, setVideoClient] = useState<StreamVideoClient>();
@@ -26,6 +29,7 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
       },
       tokenProvider,
     });
+    console.log(client)
 
     setVideoClient(client);
   }, [user, isLoaded]);
